@@ -13,11 +13,14 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Memo1: TMemo;
+    ComboBox1: TComboBox;
     procedure Button1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     FPessoa : iPessoa;
+    procedure ExibeResultado(Value : string);
   public
     { Public declarations }
   end;
@@ -28,25 +31,35 @@ var
 implementation
 
 uses
-  eInterface.Model.Pessoa.Factory;
+  eInterface.Controller.Pessoa, eInterface.Controller.Interfaces;
 
 {$R *.dfm}
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  Memo1.Lines.Add(
-
   FPessoa
     .Nome(Edit1.Text)
     .SobreNome(Edit2.Text)
+    .Display(ExibeResultado)
     .NomeCompleto
+end;
 
-  );
+procedure TForm1.ComboBox1Change(Sender: TObject);
+begin
+  case ComboBox1.ItemIndex of
+    0 : FPessoa := TControllerPessoa.New.Pessoa(tpFisica);
+    1 : FPessoa := TControllerPessoa.New.Pessoa(tpJuridica);
+  end;
+end;
+
+procedure TForm1.ExibeResultado(Value: string);
+begin
+  Memo1.Lines.Add(Value);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FPessoa := TModelPessoaFactory.New.PessoaJuridica;
+  ReportMemoryLeaksOnShutdown := True;
 end;
 
 end.

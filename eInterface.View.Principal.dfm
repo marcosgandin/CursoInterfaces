@@ -17,7 +17,7 @@ object Form1: TForm1
   TextHeight = 13
   object Button1: TButton
     Left = 24
-    Top = 51
+    Top = 91
     Width = 75
     Height = 25
     Caption = 'Button1'
@@ -26,7 +26,7 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 24
-    Top = 24
+    Top = 64
     Width = 121
     Height = 21
     TabOrder = 1
@@ -34,7 +34,7 @@ object Form1: TForm1
   end
   object Edit2: TEdit
     Left = 151
-    Top = 24
+    Top = 64
     Width = 121
     Height = 21
     TabOrder = 2
@@ -46,5 +46,16 @@ object Form1: TForm1
     Width = 231
     Height = 337
     TabOrder = 3
+  end
+  object ComboBox1: TComboBox
+    Left = 24
+    Top = 24
+    Width = 248
+    Height = 21
+    TabOrder = 4
+    OnChange = ComboBox1Change
+    Items.Strings = (
+      'Fisica'
+      'Jur'#237'dica')
   end
 end
