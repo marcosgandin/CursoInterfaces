@@ -10,6 +10,12 @@ type
     function NomeCompleto : string;
   end;
 
+  iPessoaFactory = interface
+    ['{D98340CB-8524-4D0D-B1F6-EB14A1CD851A}']
+    function PessoaFisica : iPessoa;
+    function PessoaJuridica : iPessoa;
+  end;
+
 implementation
 
 end.

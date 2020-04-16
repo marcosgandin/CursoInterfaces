@@ -4,12 +4,20 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  eInterface.Model.Interfaces;
 
 type
   TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+    FPessoa : iPessoa;
   public
     { Public declarations }
   end;
@@ -19,6 +27,26 @@ var
 
 implementation
 
+uses
+  eInterface.Model.Pessoa.Factory;
+
 {$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Memo1.Lines.Add(
+
+  FPessoa
+    .Nome(Edit1.Text)
+    .SobreNome(Edit2.Text)
+    .NomeCompleto
+
+  );
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  FPessoa := TModelPessoaFactory.New.PessoaJuridica;
+end;
 
 end.

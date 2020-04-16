@@ -2,8 +2,11 @@ program Project1;
 
 uses
   Vcl.Forms,
-  Unit1 in 'Unit1.pas' {Form1},
-  Unit2 in 'Unit2.pas';
+  eInterface.View.Principal in 'eInterface.View.Principal.pas' {Form1},
+  eInterface.Model.Interfaces in 'eInterface.Model.Interfaces.pas',
+  eInterface.Model.PessoaFisica in 'eInterface.Model.PessoaFisica.pas',
+  eInterface.Model.PessoaJuridica in 'eInterface.Model.PessoaJuridica.pas',
+  eInterface.Model.Pessoa.Factory in 'eInterface.Model.Pessoa.Factory.pas';
 
 {$R *.res}
 

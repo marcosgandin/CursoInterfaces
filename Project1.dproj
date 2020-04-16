@@ -98,11 +98,14 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Unit1.pas">
+        <DCCReference Include="eInterface.View.Principal.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit2.pas"/>
+        <DCCReference Include="eInterface.Model.Interfaces.pas"/>
+        <DCCReference Include="eInterface.Model.PessoaFisica.pas"/>
+        <DCCReference Include="eInterface.Model.PessoaJuridica.pas"/>
+        <DCCReference Include="eInterface.Model.Pessoa.Factory.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
